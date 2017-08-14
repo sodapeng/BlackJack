@@ -50,3 +50,23 @@ char* get_rank_name(rank r)
       case ace: return "ace";
    }
 }
+
+int get_rank_value(rank r)
+{
+   switch (r)
+   {
+      case two: return 2;
+      case three: return 3;
+      case four: return 4;
+      case five: return 5;
+      case six: return 6;
+      case seven: return 7;
+      case eight: return 8;
+      case nine: return 9;
+      case ten: return 10;
+      case jack: return 10;
+      case queen: return 10;
+      case king: return 10;
+      case ace: return 11;
+   }
+}

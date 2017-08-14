@@ -9,3 +9,5 @@ void shuffle(struct card ** array, int n);
 char* get_suit_name(suit s);
 
 char* get_rank_name(rank r);
+
+int get_rank_value(rank r);

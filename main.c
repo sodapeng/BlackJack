@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "cards.h"
-// #include "blackjack.h"
+#include "blackjack.h"
 // #include "poker.h"
 
 #define NUM_CARDS_IN_DECK 52
@@ -11,41 +11,41 @@ void
 deal_one_hand_of_blackjack() {
   // Create a deck
   printf("\tcreating a blackjack_deck\n");
-  int num_cards_to_request_hand_1 = 4;
+  int num_cards_to_request_hand_1 = 2;
   int num_cards_to_request_hand_2 = 3;
   void *deck = create_deck();
 
   // request four cards
   struct card** blackjack_hand_1 = deal_cards(deck, num_cards_to_request_hand_1);
-  // char* blackjack_hand_1_string;
+  char* blackjack_hand_1_string;
 
-  // blackjack_hand_1_string =  blackjack_to_string(blackjack_hand_1, num_cards_to_request_hand_1);
-  // printf("\tblackjack hand 1: %s\n", blackjack_hand_1_string);
+  blackjack_hand_1_string =  blackjack_to_string(blackjack_hand_1, num_cards_to_request_hand_1);
+  printf("\tblackjack hand 1: %s\n", blackjack_hand_1_string);
 
   // request three cards
   struct card** blackjack_hand_2 = deal_cards(deck, num_cards_to_request_hand_2);
-  // char* blackjack_hand_2_string;
-  // blackjack_hand_2_string =  blackjack_to_string(blackjack_hand_2, num_cards_to_request_hand_2);
-  // printf("\tblackjack hand 2: %s\n", blackjack_hand_2_string);
+  char* blackjack_hand_2_string;
+  blackjack_hand_2_string =  blackjack_to_string(blackjack_hand_2, num_cards_to_request_hand_2);
+  printf("\tblackjack hand 2: %s\n", blackjack_hand_2_string);
 
   // Compare the two hands to see who wins
-  // int hand_comparison = blackjack_compare(blackjack_hand_1, num_cards_to_request_hand_1,
-  //                       blackjack_hand_2, num_cards_to_request_hand_2);
-  // if (hand_comparison < 0) {
-  //   printf("\t\thand 1 wins\n");
-  // } else if (hand_comparison == 0) {
-  //   printf("\t\tdraw\n");
-  // } else {
-  //   printf("\t\thand 2 wins\n");
-  // }
+  int hand_comparison = blackjack_compare(blackjack_hand_1, num_cards_to_request_hand_1,
+                        blackjack_hand_2, num_cards_to_request_hand_2);
+  if (hand_comparison < 0) {
+    printf("\t\thand 1 wins\n");
+  } else if (hand_comparison == 0) {
+    printf("\t\tdraw\n");
+  } else {
+    printf("\t\thand 2 wins\n");
+  }
 
   // free the hands and strings
-  // free(blackjack_hand_1_string);
+  free(blackjack_hand_1_string);
   for (int i=0; i<num_cards_to_request_hand_1; i++) {
     free(blackjack_hand_1[i]);
   }
   free(blackjack_hand_1);
-  // free(blackjack_hand_2_string);
+  free(blackjack_hand_2_string);
   for (int i=0; i<num_cards_to_request_hand_2; i++) {
     free(blackjack_hand_2[i]);
   }

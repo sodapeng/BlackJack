@@ -36,7 +36,7 @@ void* create_deck() {
 void destroy_deck(void* deck) {
 	struct card ** card_array = ((struct deck *) deck)->card_array;
   int i = 0;
-    for (; i < NUM_CARDS; i++) {
+  for (; i < NUM_CARDS; i++) {
     free(card_array[i]);
   }
   free(deck);
