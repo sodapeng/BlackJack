@@ -1,4 +1,5 @@
 #include <stdlib.h>
+#include <time.h>
 #include "util.h"
 
 /* Arrange the N elements of ARRAY in random order.
@@ -7,12 +8,13 @@
    number generator. */
 void shuffle(struct card ** array, int n)
 {
+    srand(time(NULL));
     if (n > 1)
     {
         int i;
         for (i = 0; i < n - 1; i++)
         {
-          int j = i + rand() / (RAND_MAX / (n - i) + 1);
+          int j = i + rand() % (n - i);
           struct card * t = array[j];
           array[j] = array[i];
           array[i] = t;

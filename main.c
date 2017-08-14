@@ -11,9 +11,18 @@ void
 deal_one_hand_of_blackjack() {
   // Create a deck
   printf("\tcreating a blackjack_deck\n");
-  int num_cards_to_request_hand_1 = 2;
+  int num_cards_to_request_hand_1 = 3;
   int num_cards_to_request_hand_2 = 3;
   void *deck = create_deck();
+
+  // FIXME
+  struct card** peek = peek_at_deck(deck);
+
+  printf("\nPeek first ten cards: \n");
+  for(int i = 0; i < 10; i++) {
+    printf("\t%s \n", to_string(peek[i]));
+  }
+  printf("\n");
 
   // request four cards
   struct card** blackjack_hand_1 = deal_cards(deck, num_cards_to_request_hand_1);
